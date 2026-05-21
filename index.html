@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="AquaUberaba" />
+  <meta name="description" content="Distribuidora familiar em Uberaba/MG. Galão 20L, água mineral, fardos, refrigerantes, gelo e carvão com entrega rápida. Peça pelo WhatsApp." />
+  <meta property="og:title" content="AquaUberaba — Água com entrega rápida em Uberaba" />
+  <meta property="og:description" content="Atendimento rápido, confiança e qualidade para sua casa ou empresa." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <title>AquaUberaba — Entrega rápida de água mineral em Uberaba/MG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #0077cc;
+      --blue-dark: #005fa3;
+      --blue-light: #e8f4ff;
+      --green: #25d366;
+      --text: #1a1a2e;
+      --muted: #5a6474;
+      --border: #dde5ef;
+      --bg: #f7fafd;
+      --white: #ffffff;
+      --radius: 14px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    h1,h2,h3,h4 { font-family: 'Sora', sans-serif; }
+
+    a { text-decoration: none; color: inherit; }
+
+    img { max-width: 100%; display: block; }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800; font-size: 1.3rem;
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex; gap: 2rem; list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem; font-weight: 500; color: var(--muted);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+
+    .btn-wpp-nav {
+      background: var(--green);
+      color: #fff; font-weight: 600; font-size: 0.88rem;
+      padding: 10px 20px; border-radius: 50px;
+      display: flex; align-items: center; gap: 8px;
+      transition: opacity .2s;
+    }
+    .btn-wpp-nav:hover { opacity: .88; }
+
+    .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #e8f4ff 0%, #f0faff 60%, #fff 100%);
+      padding: 80px 5% 60px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: center;
+      position: relative; overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; right: -120px; top: -80px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(0,119,204,.10) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--white); border: 1px solid var(--border);
+      padding: 6px 14px; border-radius: 50px;
+      font-size: 0.82rem; font-weight: 600; color: var(--blue);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800; line-height: 1.2;
+      color: var(--text); margin-bottom: 1rem;
+    }
+
+    .hero h1 span { color: var(--blue); }
+
+    .hero p {
+      font-size: 1.05rem; color: var(--muted);
+      margin-bottom: 2rem; max-width: 440px;
+    }
+
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+
+    .btn-primary {
+      background: var(--green); color: #fff;
+      font-family: 'Sora', sans-serif; font-weight: 700;
+      padding: 14px 28px; border-radius: 50px;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(37,211,102,.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,.45); }
+
+    .btn-secondary {
+      background: transparent; color: var(--blue);
+      font-family: 'Sora', sans-serif; font-weight: 600;
+      padding: 14px 28px; border-radius: 50px;
+      border: 2px solid var(--blue);
+      transition: background .2s, color .2s;
+    }
+    .btn-secondary:hover { background: var(--blue); color: #fff; }
+
+    .hero-tags { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-tag {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.82rem; font-weight: 600; color: var(--muted);
+    }
+    .hero-tag span { color: var(--blue); font-size: 1rem; }
+
+    .hero-img img {
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,119,204,.15);
+      width: 100%; object-fit: cover;
+    }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 80px 5%; }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--blue);
+      background: var(--blue-light); padding: 5px 14px; border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800; margin-bottom: 0.5rem;
+    }
+
+    .section-sub {
+      font-size: 1rem; color: var(--muted); max-width: 520px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── DIFERENCIAIS ── */
+    .features { background: var(--bg); }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .feature-card:hover { box-shadow: 0 8px 30px rgba(0,119,204,.10); transform: translateY(-3px); }
+
+    .feature-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: var(--blue-light); display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 1rem;
+    }
+
+    .feature-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: .4rem; }
+    .feature-card p { font-size: 0.88rem; color: var(--muted); }
+
+    /* ── PRODUTOS ── */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--white);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .product-card:hover { box-shadow: 0 10px 40px rgba(0,119,204,.12); transform: translateY(-4px); }
+
+    .product-card img {
+      width: 100%; height: 200px; object-fit: cover;
+    }
+
+    .product-info { padding: 20px; }
+    .product-info h3 { font-size: 1rem; font-weight: 700; margin-bottom: .3rem; }
+    .product-info p { font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem; }
+
+    .btn-wpp-product {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--green); color: #fff;
+      font-size: 0.82rem; font-weight: 700;
+      padding: 9px 18px; border-radius: 50px;
+      transition: opacity .2s;
+    }
+    .btn-wpp-product:hover { opacity: .85; }
+
+    /* ── SOBRE ── */
+    .about { background: var(--bg); }
+
+    .about-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+    }
+
+    .about-img img {
+      border-radius: 20px;
+      box-shadow: 0 16px 50px rgba(0,0,0,.10);
+      width: 100%; object-fit: cover;
+    }
+
+    .about-stats {
+      display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;
+    }
+
+    .stat { text-align: center; }
+    .stat-num { font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 800; color: var(--blue); }
+    .stat-label { font-size: 0.8rem; color: var(--muted); font-weight: 500; }
+
+    /* ── COMO FUNCIONA ── */
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem; margin-bottom: 3rem;
+    }
+
+    .step { text-align: center; }
+    .step-num {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--blue); color: #fff;
+      font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.2rem;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1rem;
+    }
+    .step h3 { font-size: 1rem; font-weight: 700; margin-bottom: .4rem; }
+    .step p { font-size: 0.88rem; color: var(--muted); }
+
+    .steps-cta { text-align: center; }
+
+    /* ── DEPOIMENTOS ── */
+    .testimonials { background: var(--bg); }
+
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px;
+    }
+
+    .testimonial-text { font-size: 0.95rem; color: var(--muted); margin-bottom: 1.2rem; font-style: italic; }
+    .testimonial-author { font-weight: 700; font-size: 0.9rem; }
+    .testimonial-role { font-size: 0.8rem; color: var(--muted); }
+
+    /* ── CONTATO ── */
+    .contact-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: start;
+    }
+
+    .contact-info h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem; }
+
+    .contact-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--blue-light); color: var(--blue);
+      font-size: 0.8rem; font-weight: 600; padding: 5px 14px;
+      border-radius: 50px; margin-bottom: 1.5rem;
+    }
+
+    .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+
+    .contact-link {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 20px; border-radius: var(--radius);
+      border: 1px solid var(--border); background: var(--white);
+      font-weight: 600; font-size: 0.95rem;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .contact-link:hover { box-shadow: 0 4px 20px rgba(0,0,0,.08); transform: translateX(4px); }
+
+    .contact-link .icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+
+    .icon-wpp { background: #e8faf0; }
+    .icon-tel { background: var(--blue-light); }
+    .icon-insta { background: #fce4ec; }
+
+    .contact-link .link-detail { font-size: 0.78rem; color: var(--muted); font-weight: 400; }
+
+    .contact-address {
+      margin-top: 1.5rem; padding: 16px 20px;
+      border: 1px solid var(--border); border-radius: var(--radius);
+      font-size: 0.9rem; color: var(--muted);
+    }
+
+    .map-wrapper { border-radius: var(--radius); overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,.08); }
+    .map-wrapper iframe { width: 100%; height: 340px; border: none; display: block; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text); color: rgba(255,255,255,.75);
+      padding: 60px 5% 30px;
+    }
+
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem; margin-bottom: 3rem;
+    }
+
+    .footer-brand .nav-logo { color: #fff; font-size: 1.4rem; margin-bottom: .8rem; }
+    .footer-brand p { font-size: 0.88rem; line-height: 1.7; }
+
+    footer h4 { color: #fff; font-family: 'Sora', sans-serif; font-weight: 700; margin-bottom: 1rem; font-size: 0.95rem; }
+
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .footer-links a { font-size: 0.88rem; transition: color .2s; }
+    .footer-links a:hover { color: var(--blue); }
+
+    .footer-socials { display: flex; gap: .8rem; flex-direction: column; }
+    .footer-social-link {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.88rem; transition: color .2s;
+    }
+    .footer-social-link:hover { color: #fff; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 1.5rem; text-align: center;
+      font-size: 0.82rem;
+    }
+
+    /* ── FLOATING WPP ── */
+    .float-wpp {
+      position: fixed; bottom: 28px; right: 28px; z-index: 200;
+      background: var(--green); color: #fff;
+      width: 58px; height: 58px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: 0 6px 24px rgba(37,211,102,.50);
+      transition: transform .2s;
+    }
+    .float-wpp:hover { transform: scale(1.1); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: block; }
+
+      .hero { grid-template-columns: 1fr; padding: 60px 5%; }
+      .hero-img { order: -1; }
+
+      .about-inner, .contact-inner { grid-template-columns: 1fr; }
+
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .hero-ctas { flex-direction: column; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .about-stats { justify-content: center; }
+    }
+  </style>
+</head>
+<body id="top">
+
+<!-- ══ NAVBAR ══ -->
+<nav>
+  <a href="#top" class="nav-logo">AquaUberaba</a>
+  <ul class="nav-links">
+    <li><a href="#produtos">Produtos</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#como-funciona">Como funciona</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a class="btn-wpp-nav" href="https://wa.me/5534996655114?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20pedido.">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.521 5.855L.057 23.454a.75.75 0 0 0 .921.921l5.638-1.473A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.73 9.73 0 0 1-4.95-1.349l-.356-.21-3.664.957.979-3.587-.23-.368A9.693 9.693 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+    WhatsApp
+  </a>
+  <div class="menu-toggle">☰</div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">📍 Atendemos somente Uberaba/MG</div>
+    <h1>Entrega rápida de <span>água mineral</span> em Uberaba</h1>
+    <p>Atendimento rápido, confiança e qualidade para sua casa ou empresa. Peça pelo WhatsApp e receba em minutos.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="https://wa.me/5534996655114?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20pedido.">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.521 5.855L.057 23.454a.75.75 0 0 0 .921.921l5.638-1.473A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.73 9.73 0 0 1-4.95-1.349l-.356-.21-3.664.957.979-3.587-.23-.368A9.693 9.693 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+        Pedir no WhatsApp
+      </a>
+      <a class="btn-secondary" href="#produtos">Ver Produtos</a>
+    </div>
+    <div class="hero-tags">
+      <span class="hero-tag"><span>✔</span> Entrega no mesmo dia</span>
+      <span class="hero-tag"><span>✔</span> Empresa familiar</span>
+      <span class="hero-tag"><span>✔</span> 100% Uberaba</span>
+    </div>
+  </div>
+  <div class="hero-img">
+    <img src="https://agua-uberaba-connect.lovable.app/assets/hero-delivery-Bjh09Bmy.jpg" alt="Entregador de água mineral em Uberaba carregando galão 20L" />
+  </div>
+</section>
+
+<!-- ══ DIFERENCIAIS ══ -->
+<section class="features" id="diferenciais">
+  <div class="section-label">Por que nos escolher</div>
+  <h2 class="section-title">Por que escolher a AquaUberaba</h2>
+  <p class="section-sub">Mais de uma década entregando confiança porta a porta em Uberaba.</p>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🚚</div>
+      <h3>Entrega rápida</h3>
+      <p>Receba em minutos em toda Uberaba.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📍</div>
+      <h3>Atendimento local</h3>
+      <p>Especialistas em Uberaba/MG.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">✅</div>
+      <h3>Qualidade garantida</h3>
+      <p>Produtos certificados e lacrados.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🏠</div>
+      <h3>Empresa familiar</h3>
+      <p>Atendimento humano e próximo.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💬</div>
+      <h3>Pedido fácil</h3>
+      <p>Tudo pelo WhatsApp, sem complicação.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🕐</div>
+      <h3>Horário estendido</h3>
+      <p>Atendemos de seg. a sáb., 7h às 19h.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRODUTOS ══ -->
+<section id="produtos">
+  <div class="section-label">Catálogo</div>
+  <h2 class="section-title">Nossos produtos</h2>
+  <p class="section-sub">Tudo o que você precisa para a casa, o escritório ou o evento.</p>
+  <div class="products-grid">
+    <div class="product-card">
+      <img src="https://agua-uberaba-connect.lovable.app/assets/product-galao-Cg-N6Xma.jpg" alt="Galão 20L" />
+      <div class="product-info">
+        <h3>Galão 20L</h3>
+        <p>Água mineral natural em galão retornável.</p>
+        <a class="btn-wpp-product" href="https://wa.me/5534996655114?text=Ol%C3%A1!%20Gostaria%20de%20pedir%3A%20Gal%C3%A3o%2020L.">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.521 5.855L.057 23.454a.75.75 0 0 0 .921.921l5.638-1.473A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.73 9.73 0 0 1-4.95-1.349l-.356-.21-3.664.957.979-3.587-.23-.368A9.693 9.693 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+          Pedir no WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://agua-uberaba-connect.lovable.app/assets/product-agua-BhE_4fvV.jpg" alt="Água Mineral" />
+      <div class="product-info">
+        <h3>Água Mineral</h3>
+        <p>Garrafas de 500ml, 1,5L e 5L.</p>
+        <a class="btn-wpp-product" href="https://wa.me/5534996655114?text=Ol%C3%A1!%20Gostaria%20de%20pedir%3A%20%C3%81gua%20Mineral.">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.521 5.855L.057 23.454a.75.75 0 0 0 .921.921l5.638-1.473A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.73 9.73 0 0 1-4.95-1.349l-.356-.21-3.664.957.979-3.587-.23-.368A9.693 9.693 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+          Pedir no WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://agua-uberaba-connect.lovable.app/assets/product-fardo-BVRFT7Qi.jpg" alt="Fardos de Água" />
+      <div class="product-info">
+        <h3>Fardos de Água</h3>
+        <p>Fardos com 6 ou 12 unidades.</p>
+        <a class="btn-wpp-product" href="https://wa.me/5534996655114?text=Ol%C3%A1!%20Gostaria%20de%20pedir%3A%20Fardos%20de%20%C3%81gua.">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.521 5.855L.057 23.454a.75.75 0 0 0 .921.921l5.638-1.473A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.73 9.73 0 0 1-4.95-1.349l-.356-.21-3.664.957.979-3.587-.23-.368A9.693 9.693 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+          Pedir no WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://agua-uberaba-connect.lovable.app/assets/product-refri-KTPprmYM.jpg" alt="Refrigerantes" />
+      <div class="product-info">
+        <h3>Refrigerantes</h3>
+        <p>Linha completa, gelados na hora.</p>
+        <a class="btn-wpp-product" href="https://wa.me/5534996655114?text=Ol%C3%A1!%20Gostaria%20de%20pedir%3A%20Refrigerantes.">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.521 5.855L.057 23.454a.75.75 0 0 0 .921.921l5.638-1.473A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.73 9.73 0 0 1-4.95-1.349l-.356-.21-3.664.957.979-3.587-.23-.368A9.693 9.693 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+          Pedir no WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://agua-uberaba-connect.lovable.app/assets/product-gelo-b-zuCG56.jpg" alt="Gelo" />
+      <div class="product-info">
+        <h3>Gelo</h3>
+        <p>Sacos de gelo em cubos, sempre disponível.</p>
+        <a class="btn-wpp-product" href="https://wa.me/5534996655114?text=Ol%C3%A1!%20Gostaria%20de%20pedir%3A%20Gelo.">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.521 5.855L.057 23.454a.75.75 0 0 0 .921.921l5.638-1.473A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.73 9.73 0 0 1-4.95-1.349l-.356-.21-3.664.957.979-3.587-.23-.368A9.693 9.693 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+          Pedir no WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://agua-uberaba-connect.lovable.app/assets/product-carvao-ywSwEDVS.jpg" alt="Carvão" />
+      <div class="product-info">
+        <h3>Carvão</h3>
+        <p>Carvão de qualidade para o seu churrasco.</p>
+        <a class="btn-wpp-product" href="https://wa.me/5534996655114?text=Ol%C3%A1!%20Gostaria%20de%20pedir%3A%20Carv%C3%A3o.">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.521 5.855L.057 23.454a.75.75 0 0 0 .921.921l5.638-1.473A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.73 9.73 0 0 1-4.95-1.349l-.356-.21-3.664.957.979-3.587-.23-.368A9.693 9.693 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+          Pedir no WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SOBRE ══ -->
+<section class="about" id="sobre">
+  <div class="about-inner">
+    <div class="about-img">
+      <img src="https://agua-uberaba-connect.lovable.app/assets/about-warehouse-JsP3wLyw.jpg" alt="Centro de distribuição da AquaUberaba em Uberaba/MG" />
+    </div>
+    <div>
+      <div class="section-label">Sobre nós</div>
+      <h2 class="section-title">Uma empresa familiar, feita para Uberaba</h2>
+      <p style="color:var(--muted); margin-bottom:1rem;">A AquaUberaba nasceu em Uberaba com um propósito simples: levar água de qualidade e bom atendimento até a porta de cada cliente. Somos uma empresa familiar, comprometida com a rapidez na entrega e com um atendimento próximo, simpático e confiável.</p>
+      <p style="color:var(--muted);">Atendemos casas, condomínios, escritórios, restaurantes e eventos em toda a cidade. Você pede pelo WhatsApp e a gente cuida do resto.</p>
+      <div class="about-stats">
+        <div class="stat">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Anos em Uberaba</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">5k+</div>
+          <div class="stat-label">Clientes atendidos</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">30min</div>
+          <div class="stat-label">Entrega média</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMO FUNCIONA ══ -->
+<section id="como-funciona">
+  <div style="text-align:center; margin-bottom:3rem;">
+    <div class="section-label" style="display:inline-block;">Como funciona</div>
+    <h2 class="section-title">Em 3 passos simples você recebe seu pedido</h2>
+  </div>
+  <div class="steps-grid">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>Escolha os produtos</h3>
+      <p>Veja nosso catálogo aqui no site.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>Chame no WhatsApp</h3>
+      <p>Mande seu pedido em um clique.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>Receba em casa</h3>
+      <p>Entregamos rapidinho em Uberaba.</p>
+    </div>
+  </div>
+  <div class="steps-cta">
+    <a class="btn-primary" href="https://wa.me/5534996655114?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20pedido." style="display:inline-flex;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.521 5.855L.057 23.454a.75.75 0 0 0 .921.921l5.638-1.473A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.73 9.73 0 0 1-4.95-1.349l-.356-.21-3.664.957.979-3.587-.23-.368A9.693 9.693 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+      Fazer meu pedido agora
+    </a>
+  </div>
+</section>
+
+<!-- ══ DEPOIMENTOS ══ -->
+<section class="testimonials">
+  <div style="text-align:center; margin-bottom:3rem;">
+    <div class="section-label" style="display:inline-block;">Depoimentos</div>
+    <h2 class="section-title">O que dizem nossos clientes</h2>
+    <p class="section-sub" style="margin:0 auto;">Histórias reais de quem confia na AquaUberaba.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <p class="testimonial-text">"Pedi pelo WhatsApp e em 20 minutos o galão já estava em casa. Atendimento excelente!"</p>
+      <div class="testimonial-author">Mariana S.</div>
+      <div class="testimonial-role">Cliente em Uberaba</div>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-text">"Recebo fardos toda semana, sempre no horário combinado. Empresa de confiança."</p>
+      <div class="testimonial-author">Carlos R.</div>
+      <div class="testimonial-role">Restaurante local</div>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-text">"Atendimento familiar, simpático e rápido. Recomendo para todo mundo aqui em Uberaba."</p>
+      <div class="testimonial-author">Juliana M.</div>
+      <div class="testimonial-role">Cliente residencial</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTATO ══ -->
+<section id="contato">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="contact-badge">📍 Atendemos somente Uberaba/MG</div>
+      <h2>Fale com a gente</h2>
+      <p style="color:var(--muted); margin-bottom:1.5rem;">Atendimento rápido pelos seus canais favoritos.</p>
+      <div class="contact-links">
+        <a class="contact-link" href="https://wa.me/5534996655114?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20pedido.">
+          <div class="icon icon-wpp">💬</div>
+          <div>
+            <div>WhatsApp (34) 99665-5114</div>
+            <div class="link-detail">Clique para abrir conversa</div>
+          </div>
+        </a>
+        <a class="contact-link" href="tel:+5534996655114">
+          <div class="icon icon-tel">📞</div>
+          <div>
+            <div>Telefone (34) 99665-5114</div>
+            <div class="link-detail">Ligue agora</div>
+          </div>
+        </a>
+        <a class="contact-link" href="https://instagram.com/aquauberaba">
+          <div class="icon icon-insta">📸</div>
+          <div>
+            <div>Instagram @aquauberaba</div>
+            <div class="link-detail">Siga a gente</div>
+          </div>
+        </a>
+      </div>
+      <div class="contact-address">
+        📍 Av. Leopoldino de Oliveira, Centro — Uberaba/MG
+      </div>
+    </div>
+    <div class="map-wrapper">
+      <iframe
+        src="https://www.google.com/maps?q=Uberaba,+MG,+Brazil&output=embed"
+        title="Localização AquaUberaba — Uberaba/MG"
+        allowfullscreen loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo">AquaUberaba</div>
+      <p>Distribuidora familiar de água mineral, refrigerantes, gelo e carvão em Uberaba/MG.</p>
+      <p style="margin-top:.5rem; font-size:0.8rem;">Av. Leopoldino de Oliveira, Centro — Uberaba/MG</p>
+    </div>
+    <div>
+      <h4>Links rápidos</h4>
+      <ul class="footer-links">
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#sobre">Sobre nós</a></li>
+        <li><a href="#como-funciona">Como funciona</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Siga &amp; contate</h4>
+      <div class="footer-socials">
+        <a class="footer-social-link" href="https://wa.me/5534996655114?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20pedido.">💬 WhatsApp</a>
+        <a class="footer-social-link" href="https://instagram.com/aquauberaba">📸 Instagram</a>
+        <a class="footer-social-link" href="tel:+5534996655114">📞 (34) 99665-5114</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 AquaUberaba Distribuidora — Todos os direitos reservados.
+  </div>
+</footer>
+
+<!-- ══ FLOATING WHATSAPP ══ -->
+<a class="float-wpp" href="https://wa.me/5534996655114?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20pedido." title="Pedir no WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.521 5.855L.057 23.454a.75.75 0 0 0 .921.921l5.638-1.473A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.73 9.73 0 0 1-4.95-1.349l-.356-.21-3.664.957.979-3.587-.23-.368A9.693 9.693 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+</a>
+
+</body>
+</html>
